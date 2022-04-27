@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.example</groupId>
-    <artifactId>gitRepoTest</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-
+### 1、在github创建一个maven项目
+### 2、编写pom文件
+```xml
     <distributionManagement>
         <repository>
             <id>local-repo-release</id>
@@ -45,4 +37,17 @@
             </plugin>
         </plugins>
     </build>
-</project>
+
+```
+### 3、执行部署命令
+```shell
+mvn deploy
+```
+### 4、提交代码到github
+
+### 5、配置GitHub Pages
+![image/githubpages.png](image/githubpages.png)
+这样，把全部内容推送至GitHub后，即可作为静态网站访问Maven的repo，
+它的地址是 https://ziyear.github.io/gitRepoTest/maven-repo/
+版本1.0.0对应的jar包地址是：
+https://ziyear.github.io/gitRepoTest/maven-repo/org/example/gitRepoTest/1.0.0/gitRepoTest-1.0.0.jar
