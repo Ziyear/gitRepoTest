@@ -47,7 +47,30 @@ mvn deploy
 
 ### 5、配置GitHub Pages
 ![image/githubpages.png](image/githubpages.png)
-这样，把全部内容推送至GitHub后，即可作为静态网站访问Maven的repo，
+这样，把全部内容推送至GitHub后，即可作为静态网站访问Maven的repo
+
 它的地址是 https://ziyear.github.io/gitRepoTest/maven-repo/
+
 版本1.0.0对应的jar包地址是：
 https://ziyear.github.io/gitRepoTest/maven-repo/org/example/gitRepoTest/1.0.0/gitRepoTest-1.0.0.jar
+
+现在，如果其他人希望引用这个Maven包，我们可以告知如下依赖即可：
+```xml
+<dependency>
+    <groupId>org.example</groupId>
+    <artifactId>gitRepoTest</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+但是，除了正常导入依赖外，对方还需要再添加一个<repository>的声明，即使用方完整的pom.xml如下：
+
+```xml
+    <repositories>
+        <repository>
+            <id>github-rich-repo</id>
+            <name>The Maven Repository on Github</name>
+            <url>https://ziyear.github.io/gitRepoTest/maven-repo/</url>
+        </repository>
+    </repositories>
+```
